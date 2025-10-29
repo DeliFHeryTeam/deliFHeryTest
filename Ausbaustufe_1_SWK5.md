@@ -1,5 +1,7 @@
 [X] --> Fertig
+
 [/] --> nu ned ganz fertig
+
 [ ] --> nicht gemacht
 
 # Ausbaustufe 1 (SWK5)
