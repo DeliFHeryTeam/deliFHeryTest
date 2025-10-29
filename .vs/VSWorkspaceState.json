@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\doc",
+    "\\sql",
+    "\\src",
+    "\\src\\API",
+    "\\src\\API\\Endpoints",
+    "\\src\\Domain",
+    "\\src\\Domain\\Data",
+    "\\src\\Domain\\Entities",
+    "\\tests"
+  ],
+  "SelectedNode": "\\src\\API\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
