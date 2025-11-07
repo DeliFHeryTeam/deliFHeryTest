@@ -1,21 +1,119 @@
 services:
+  # ---------------------------------------------------------------------------------
+  # GitHub Actions Runner (Self-Hosted)
+  # ---------------------------------------------------------------------------------
   runner:
-    build:
-      context: ./docker/runner
-    container_name: github-runner
-    restart: always
-    environment:
-      RUNNER_NAME: arthur-runner
-      RUNNER_REPO_URL: https://github.com/DeliFHeryTeam/deliFHeryTest
-      RUNNER_TOKEN: ${RUNNER_TOKEN}
-      RUNNER_WORKDIR: /tmp/github-runner
+    image: myoung34/github-runner:latest  # Community-maintained GitHub Actions runner image
+    container_name: delifhery_runner
+    restart: unless-stopped
+
+    # The runner must access the host's Docker socket to be able to
+    # execute Docker commands (e.g., building the backend container).
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/github-runner:/tmp/github-runner
+      - /var/run/docker.sock:/var/run/docker.sock 
+
+    environment:
+      # Registration details for the GitHub self-hosted runner.
+      # These values are read from the local `.env` file.
+      REPO_URL: https://github.com/${GH_OWNER}/${GH_REPO}
+      ACCESS_TOKEN: ${GH_PAT}                   # GitHub personal access token with repo/admin:org scope
+      RUNNER_NAME: ${GH_RUNNER_NAME}            # Custom name for identifying the runner
+      RUNNER_WORKDIR: /home/docker/github-actions-runner  # Working directory inside the container
+      LABELS: self-hosted,linux,x64,docker-compose       # Labels for targeting jobs in GitHub workflows
+
     networks:
       - delifhery-net
 
+  # ---------------------------------------------------------------------------------
+  # MySQL Database Service
+  # ---------------------------------------------------------------------------------
+  db:
+    image: mysql:8.0
+    container_name: delifhery_db
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}   # Root password (should come from .env or GitHub secrets)
+      MYSQL_DATABASE: delifhery            # Default database name
+      MYSQL_USER: ${DB_USER}               # Application DB user
+      MYSQL_PASSWORD: ${DB_USER_PW}        # Application DB password
+
+    ports:
+      - "3306:3306"                        # Expose MySQL port
+
+    volumes:
+      - db-data:/var/lib/mysql             # Persist database data locally
+      - db-data:/var/lib/mysql
+      - ./db_scripts/CREATE_DELIFHERY.sql:/docker-entrypoint-initdb.d/01_CREATE_DELIFHERY.sql
+#      - ./db_scripts/DROP_DELIFHERY.sql:/docker-entrypoint-initdb.d/02_DROP_DELIFHERY.sql
+
+    networks:
+      - delifhery-net
+
+    # Simple health check to ensure MySQL is ready before the backend starts.
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+
+  # ---------------------------------------------------------------------------------
+  # Backend (.NET 9 API)
+  # ---------------------------------------------------------------------------------
+  backend:
+    build: 
+      context: ./backend                    # Directory containing the .NET solution and Dockerfile
+      dockerfile: Dockerfile
+    container_name: delifhery_api
+    restart: always
+
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"      # The API will listen on port 8080
+      ConnectionStrings__DefaultConnection: >
+        Server=db;
+        Database=delifhery;
+        User=${DB_USER};
+        Password=${DB_USER_PW};
+
+    depends_on:
+      db:
+        condition: service_healthy           # Wait for MySQL to be ready before starting
+
+    ports:
+      - "8080:8080"                          # Expose backend port
+
+    networks:
+      - delifhery-net
+
+  # ---------------------------------------------------------------------------------
+  # Frontend 
+  # ---------------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend/deliFHeryApp       # Angular project directory
+      dockerfile: Dockerfile
+    container_name: delifhery_frontend
+    restart: always
+
+    ports:
+      - "4200:80"                            # Map host port 4200 to container port 80
+
+    environment:
+      - API_BASE_URL=http://backend:8080     # Backend API endpoint used by the frontend
+
+    networks:
+      - delifhery-net
+
+# ---------------------------------------------------------------------------------
+# Volumes
+# ---------------------------------------------------------------------------------
+volumes:
+  db-data:
+    driver: local                            # Local volume for persistent MySQL data
+
+# ---------------------------------------------------------------------------------
+# Networks
+# ---------------------------------------------------------------------------------
 networks:
   delifhery-net:
-    driver: bridge
+    driver: bridge                           # Default Docker bridge network for inter-service communication
 
