@@ -1,0 +1,10 @@
+DROP TABLE trackingHistoryEntry;
+DROP TABLE shipmentOrder;
+DROP TABLE package;
+DROP TABLE postOffice;
+DROP TABLE phonenumber;
+DROP TABLE email;
+DROP TABLE contact;
+DROP TABLE customer;
+DROP TABLE sender;
+DROP TABLE address;
