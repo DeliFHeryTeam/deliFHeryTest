@@ -60,3 +60,8 @@ nunit-*.xml
 
 # dockcer-compose
 *docker-compose.yaml
+
+.vs/**
+.vs
+db/**
+!db/.gitkeep
