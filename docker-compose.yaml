@@ -42,19 +42,20 @@ services:
       - "3306:3306"                        # Expose MySQL port
 
     volumes:
-      - db-data:/var/lib/mysql             # Persist database data locally
       - db-data:/var/lib/mysql
-      - ./db_scripts/CREATE_DELIFHERY.sql:/docker-entrypoint-initdb.d/01_CREATE_DELIFHERY.sql
-#      - ./db_scripts/DROP_DELIFHERY.sql:/docker-entrypoint-initdb.d/02_DROP_DELIFHERY.sql
+      - ./db_scripts/CREATE.sql:/docker-entrypoint-initdb.d/CREATE.sql
+      - ./db_scripts/GRANT_ACCESS.sql:/docker-entrypoint-initdb.d/GRANT_ACCESS.sql
 
     networks:
       - delifhery-net
 
     # Simple health check to ensure MySQL is ready before the backend starts.
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 10s
+      test: [ "CMD-SHELL", "mysql -h 127.0.0.1 -u $$MYSQL_USER -p$$MYSQL_PASSWORD -D $$MYSQL_DATABASE -e 'SELECT 1;'" ]
+      interval: 10s
+      timeout: 5s
       retries: 5
+      start_period: 30s
 
   # ---------------------------------------------------------------------------------
   # Backend (.NET 9 API)

@@ -62,12 +62,16 @@ nunit-*.xml
 *docker-compose.yaml
 docker-compose.yaml
 
-.idea
-.idea/**
-
-
 
 .vs/**
 .vs
 db/**
 !db/.gitkeep
+
+.idea
+.idea/**
+
+.DS_Store
+DS_Store
+
+
