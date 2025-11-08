@@ -1,25 +1,58 @@
-<<<<<<< HEAD:backend/DeliFHery.Infrastructure.Tests/UnitTest1.cs
-﻿namespace DeliFHery.Infrastructure.Tests;
+using DeliFHery.Application.Interfaces.DataAccess;
+using DeliFHery.Domain;
+using DeliFHery.Infrastructure.Common.Ado;
+using DeliFHery.Infrastructure.Common.Util;
+using DeliFHery.Infrastructure.DataAccess.Ado;
+using Microsoft.Extensions.Configuration;
+
+namespace DeliFHery.Infrastructure.Tests;
 
 public class UnitTest1
 {
-    [Fact]
-    public void Test1()
+
+    private IConnectionFactory _factory = null;
+
+    private IConnectionFactory getFactory()
     {
-        Assert.True(1 + 2 == 3);
+        if (_factory is null)
+        {
+            _factory =  DefaultConnectionFactory.FromConfiguration( ConfigurationUtil.GetConfiguration(),
+                "DefaultConnection", "DefaultProvider");
+        }
 
+        return _factory;
     }
-}
-=======
-﻿namespace DeliFHery.Data.Tests;
 
-public class UnitTest1
-{
     [Fact]
-    public void Test1()
+    public void ConfigurationUtil_FindsConfiguration()
     {
-        Assert.True(1 + 2 == 3);
-
+        IConfiguration configuration;
+        configuration = ConfigurationUtil.GetConfiguration();
+        Assert.NotNull(configuration);
     }
+
+    [Fact]
+    public void DefaultConnectionFactory_CreatesInstance()
+    {
+        IConnectionFactory factory;
+        IConfiguration configuration;
+        configuration = ConfigurationUtil.GetConfiguration();
+        factory = DefaultConnectionFactory.FromConfiguration(configuration,
+            "DefaultConnection", "DefaultProvider");
+        Assert.NotNull(factory);
+    }
+
+    [Fact]
+    public async Task CustomerDaoReturns_AllCustomers()
+    {
+        var factory = getFactory();
+        ICustomerDao cDao = new AdoCustomerDao(factory);
+
+        IEnumerable<Customer> customers = await cDao.FindAllAsync();
+
+        Assert.NotNull(customers);
+        Assert.NotEmpty(customers);
+    }
+
+
 }
->>>>>>> origin/main:backend/DeliFHery.Data.Tests/UnitTest1.cs

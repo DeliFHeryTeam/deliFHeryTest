@@ -26,12 +26,34 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/DeliFHery.Domain/PhoneNr.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/466065bdcfd14a269324878adc9d7d8d325a00/15/89aa3578/DbCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdb59e1eaa31428283dae19d3384a70ee55200/23/ec01a345/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdb59e1eaa31428283dae19d3384a70ee55200/8c/945769be/String.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdb59e1eaa31428283dae19d3384a70ee55200/b3/c0401e10/List`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdb59e1eaa31428283dae19d3384a70ee55200/cf/5497aee4/Array.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2fb4ce5c5d48d4171f81a8112b65aa49196f0048576d4c9c280de41e6ff44/ConfigurationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e14a4e27990972fa4ae94975603bd298aaf328ee083c03b10569ee4724d57/TestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68585b13d4f95fc3bd4e8bd2b563fd7da07849768ea8985ad7a5b7f3b8a/MySqlConnectorFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8bb5e9b7c0175f0e7484c843d9a2bbcfb1f176b842f476b2c6a8fcbceea5cf/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ed6ce64925764ce46562336cd72d1f821892dcfd98b149d198de1b46b47377b4/JsonConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Application/Interfaces/DataAccess/ICustomerDao.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Domain/Entities/PhoneNr.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Ado/AdoTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Ado/DefaultConnectionFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Ado/Delegates.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Ado/IConnectionFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Ado/QueryParameter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Util/ConfigurationUtil.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/Common/Util/DbUtil.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Infrastructure/DataAccess/Ado/AdoCustomerDao.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -49,6 +71,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;d63dcbd8-4224-433c-a551-fce6b08be933.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/arthur/Library/CloudStorage/OneDrive-Personal/Dokumente/Hagenberg/Sem5/SWK_UE/DeliFHery/myTest/testDeliFHery&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -173,7 +196,7 @@
       <workItem from="1761988656453" duration="13000" />
       <workItem from="1762542471308" duration="2785000" />
       <workItem from="1762601770145" duration="5798000" />
-      <workItem from="1762609124778" duration="5381000" />
+      <workItem from="1762609124778" duration="17780000" />
     </task>
     <servers />
   </component>
@@ -181,6 +204,11 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Client" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
@@ -198,6 +226,12 @@
         <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.IO.FileNotFoundException" breakIfHandledByUserCode="true" isInternal="false" displayValue="FileNotFoundException" namespaceName="System.IO">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

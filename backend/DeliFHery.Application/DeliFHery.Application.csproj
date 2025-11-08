@@ -7,4 +7,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DeliFHery.Domain\DeliFHery.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
