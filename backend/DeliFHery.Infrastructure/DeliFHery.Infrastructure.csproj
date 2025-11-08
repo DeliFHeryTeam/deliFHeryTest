@@ -1,3 +1,4 @@
+<<<<<<< HEAD:backend/DeliFHery.Infrastructure/DeliFHery.Infrastructure.csproj
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
@@ -11,3 +12,18 @@
   </PropertyGroup>
 
 </Project>
+=======
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeliFHery.Core\DeliFHery.Core.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+>>>>>>> origin/main:backend/DeliFHery.Data/DeliFHery.Data.csproj
