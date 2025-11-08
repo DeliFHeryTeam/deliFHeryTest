@@ -1,5 +1,4 @@
-<<<<<<< HEAD:backend/DeliFHery.Domain/DeliFHery.Domain.csproj
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -9,14 +8,3 @@
   </PropertyGroup>
 
 </Project>
-=======
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-</Project>
->>>>>>> origin/main:backend/DeliFHery.Core/DeliFHery.Core.csproj
