@@ -60,6 +60,8 @@ nunit-*.xml
 
 # dockcer-compose
 *docker-compose.yaml
+docker-compose.yaml
+
 
 # Environment
 *.env
