@@ -25,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DeliFHery.Domain/PhoneNr.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -170,7 +173,7 @@
       <workItem from="1761988656453" duration="13000" />
       <workItem from="1762542471308" duration="2785000" />
       <workItem from="1762601770145" duration="5798000" />
-      <workItem from="1762609124778" duration="4633000" />
+      <workItem from="1762609124778" duration="5381000" />
     </task>
     <servers />
   </component>
