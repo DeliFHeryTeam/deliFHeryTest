@@ -11,16 +11,16 @@ In der ersten Ausbaustufe sind die folgenden Aufgaben zu erledigen:
 ## Entwicklungsprozess definieren
 
 - [X] Sourcecodeverwaltung einrichten
-- [/] Ordnerstruktur überlegen und umsetzen
+- [X] Ordnerstruktur überlegen und umsetzen
 - [/] Zusammenarbeit in 2er-Teams organisieren (Branching, Pull Requests, etc.)
 - [X] Issue-Tracking-System einrichten
-- [ ] Build-Pipeline einrichten
+- [X ] Build-Pipeline einrichten
 
 ## Grundlegende Projektstruktur erstellen
 
-- [ ] Visual-Studio-Solution mit Projektstruktur anlegen
+- [X] Visual-Studio-Solution mit Projektstruktur anlegen
 - [/] Vorbereitung der Dokumentation (README.md)
-- [ ] Projekt für Unit-Tests anlegen
+- [X] Projekt für Unit-Tests anlegen
 
 ## Implementierung
 
