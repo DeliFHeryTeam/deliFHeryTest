@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2025-10-30",
+    "temperatureC": 51,
+    "summary": "Balmy",
+    "temperatureF": 123
+  },
+  {
+    "date": "2025-10-31",
+    "temperatureC": -4,
+    "summary": "Hot",
+    "temperatureF": 25
+  },
+  {
+    "date": "2025-11-01",
+    "temperatureC": 53,
+    "summary": "Mild",
+    "temperatureF": 127
+  },
+  {
+    "date": "2025-11-02",
+    "temperatureC": 32,
+    "summary": "Sweltering",
+    "temperatureF": 89
+  },
+  {
+    "date": "2025-11-03",
+    "temperatureC": 49,
+    "summary": "Cool",
+    "temperatureF": 120
+  }
+]

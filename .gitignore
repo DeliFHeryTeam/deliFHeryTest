@@ -62,6 +62,10 @@ nunit-*.xml
 *docker-compose.yaml
 docker-compose.yaml
 
+.idea
+.idea/**
+
+
 
 .vs/**
 .vs
