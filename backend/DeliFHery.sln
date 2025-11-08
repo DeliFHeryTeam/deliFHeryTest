@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Api", "DeliFHery.Api\DeliFHery.Api.csproj", "{F586BF30-7CD2-4896-BEA7-CADD47D20B01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Core", "DeliFHery.Core\DeliFHery.Core.csproj", "{6500517B-B90B-4E15-BA03-4A1B1DA8DF9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Domain", "DeliFHery.Domain\DeliFHery.Domain.csproj", "{6500517B-B90B-4E15-BA03-4A1B1DA8DF9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Data", "DeliFHery.Data\DeliFHery.Data.csproj", "{DCC1EA14-A84D-48B4-BBEE-6BD5E69C0D55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Infrastructure", "DeliFHery.Infrastructure\DeliFHery.Infrastructure.csproj", "{DCC1EA14-A84D-48B4-BBEE-6BD5E69C0D55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Data.Tests", "DeliFHery.Data.Tests\DeliFHery.Data.Tests.csproj", "{A74D271F-4FD0-4F04-802E-FE2E3B9287F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Infrastructure.Tests", "DeliFHery.Infrastructure.Tests\DeliFHery.Infrastructure.Tests.csproj", "{A74D271F-4FD0-4F04-802E-FE2E3B9287F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliFHery.Application", "DeliFHery.Application\DeliFHery.Application.csproj", "{C1B5126B-4950-4396-8C9E-B58C82BED135}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 		{A74D271F-4FD0-4F04-802E-FE2E3B9287F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A74D271F-4FD0-4F04-802E-FE2E3B9287F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A74D271F-4FD0-4F04-802E-FE2E3B9287F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1B5126B-4950-4396-8C9E-B58C82BED135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B5126B-4950-4396-8C9E-B58C82BED135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B5126B-4950-4396-8C9E-B58C82BED135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B5126B-4950-4396-8C9E-B58C82BED135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

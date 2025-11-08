@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <RootNamespace>DeliFHery.Infrastructure.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliFHery.Data\DeliFHery.Data.csproj" />
+    <ProjectReference Include="..\DeliFHery.Infrastructure\DeliFHery.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

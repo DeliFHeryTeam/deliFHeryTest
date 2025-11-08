@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliFHery.Core\DeliFHery.Core.csproj" />
+    <ProjectReference Include="..\DeliFHery.Domain\DeliFHery.Domain.csproj" />
   </ItemGroup>
 
 </Project>

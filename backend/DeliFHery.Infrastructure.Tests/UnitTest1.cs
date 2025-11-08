@@ -1,4 +1,4 @@
-﻿namespace DeliFHery.Data.Tests;
+﻿namespace DeliFHery.Infrastructure.Tests;
 
 public class UnitTest1
 {
