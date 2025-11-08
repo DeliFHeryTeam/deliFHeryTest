@@ -63,59 +63,7 @@ nunit-*.xml
 docker-compose.yaml
 
 
-# Environment
-*.env
-.env
-
-# Runner
-actions-runner/
-actions-runner/**
-*actions-runner/**
-
-# Frontend 
-frontend/**
-!frontend/.gitkeep
-
-# DB
+.vs/**
+.vs
 db/**
 !db/.gitkeep
-
-# Build stuff
-bin/
-obj/
-node_modules/
-**/node_modules/
-
-
-.dockerignore
-
-.zip
-
-**/*vspscc
-
-# MacOS
-.DS_Store
-**/.DS_Store
-
-# JetBrains (Rider, IntelliJ)
-.idea/
-**/.idea/
-**/.idea/.idea.*/
-
-# Visual Studio / VS Code
-.vs/
-.vscode/
-
-# Lokale Laufzeit- und Debug-Einstellungen
-**/launchSettings.json
-
-# Windows Systemdateien
-Thumbs.db
-Desktop.ini
-
-# Logs und temporäre Dateien
-*.log
-*.tmp
-# ASP.NET Core temporäre Dateien
-Temp/
-
