@@ -24,10 +24,10 @@ jobs:
           DB_USER_PW: ${{ secrets.DB_USER_PW }}
           DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
 
-  build-teammate:
-    if: github.actor == 'TeammateGitHubUsername'
-    runs-on: [self-hosted, docker-compose, teammate]
-    name: Build/Test (Teammate)
+  build-HaidingerFlorian:
+    if: github.actor == 'HaidingerFlorian'
+    runs-on: [self-hosted, docker-compose, HaidingerFlorian]
+    name: Build/Test (HaidingerFlorian)
     steps:
       - uses: actions/checkout@v4
       - name: Build Backend
