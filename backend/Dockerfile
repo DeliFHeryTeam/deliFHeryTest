@@ -21,7 +21,7 @@ RUN dotnet restore DeliFHery.sln
 # Run all unit tests defined in the Data.Tests project.
 # Using '--no-restore' skips restoring packages again since it was already done.
 # '--verbosity normal' provides detailed test output for debugging.
-RUN dotnet test DeliFHery.Data.Tests/DeliFHery.Data.Tests.csproj --no-restore --verbosity normal
+RUN dotnet test DeliFHery.Tests/DeliFHery.Tests.csproj --no-restore --verbosity normal
 
 # Publish the API project in Release mode to a dedicated output directory.
 # '--no-restore' reuses the previous restore step to save time.
