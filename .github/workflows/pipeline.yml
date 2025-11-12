@@ -9,53 +9,84 @@ on:
       - main
 
 jobs:
-  build-and-test:
-    name: Build, Test, and Deploy Backend
-    
-    # Ensures that the job runs on the self-hosted runner
-    # which has access to Docker (via mounted Docker socket).
-    # The labels must match those configured in docker-compose.yml.
-    runs-on: [self-hosted, docker-compose] 
-
+  build-randomGuyi:
+    if: github.actor == 'randomGuyi'
+    runs-on: [self-hosted, docker-compose, randomGuyi]
+    name: Build/Test (randomGuyi)
     steps:
-      # --------------------------------------------------
-      # 1. CHECKOUT CODE
-      # --------------------------------------------------
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        # This step retrieves the repository content
-        # so the pipeline can build and test the backend code.
-        
-      # --------------------------------------------------
-      # 2. BUILD AND TEST (Core CI Step)
-      # --------------------------------------------------
-      - name: Build and Test Backend (via Dockerfile)
-        id: build_api
-        # Executes the backend build inside a Docker container.
-        # The backend/Dockerfile already includes unit tests via "dotnet test",
-        # ensuring that a failing test automatically fails the pipeline.
-        run: |
-          # Build the backend image using a unique tag.
-          # If this step fails (e.g., due to test failure),
-          # the entire CI process will stop immediately.
-          docker build \
-            ./backend \
-            -f ./backend/Dockerfile \
-            --tag delifhery-api:latest \
-            --no-cache 
-            
-      # --------------------------------------------------
-      # 3. DEPLOYMENT (Local Docker Host)
-      # --------------------------------------------------
-      - name: Deploy (Restart) Backend Container
-        # Recreates and restarts only the backend service.
-        # The "--no-deps" flag prevents dependent containers (like the database)
-        # from being restarted unnecessarily.
+      - uses: actions/checkout@v4
+      - name: Build Backend
+        run: docker build ./backend -f ./backend/Dockerfile -t delifhery-api:latest --no-cache
+      - name: Deploy Backend
         run: docker compose up -d --no-deps --force-recreate backend
-
-        env:
-          # Pass database credentials securely via GitHub Secrets.
-          # These are required for the backend to connect to the MySQL container.
-          DB_USER: ${{ secrets.DB_USER }}
+        env: # Both got the same secrets
+          DB_USER: ${{secrets.DB_USER }}
           DB_USER_PW: ${{ secrets.DB_USER_PW }}
           DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
+
+    build-teammate:
+      if: github.actor == 'TeammateGitHubUsername'
+      runs-on: [self-hosted, docker-compose, teammate]
+      name: Build/Test (Teammate)
+      steps:
+        - uses: actions/checkout@v4
+        - name: Build Backend
+          run: docker build ./backend -f ./backend/Dockerfile -t delifhery-api:latest --no-cache
+        - name: Deploy Backend
+          run: docker compose up -d --no-deps --force-recreate backend
+          env:
+            DB_USER: ${{ secrets.DB_USER }}
+            DB_USER_PW: ${{ secrets.DB_USER_PW }}
+            DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
+
+
+   #build-and-test:
+     #name: Build, Test, and Deploy Backend
+     #
+     ## Ensures that the job runs on the self-hosted runner
+     ## which has access to Docker (via mounted Docker socket).
+     ## The labels must match those configured in docker-compose.yml.
+     #runs-on: [self-hosted, docker-compose] 
+ #
+     #steps:
+       ## --------------------------------------------------
+       ## 1. CHECKOUT CODE
+       ## --------------------------------------------------
+       #- name: Checkout Repository
+         #uses: actions/checkout@v4
+         ## This step retrieves the repository content
+         ## so the pipeline can build and test the backend code.
+         #
+       ## --------------------------------------------------
+       ## 2. BUILD AND TEST (Core CI Step)
+       ## --------------------------------------------------
+       #- name: Build and Test Backend (via Dockerfile)
+         #id: build_api
+         ## Executes the backend build inside a Docker container.
+         ## The backend/Dockerfile already includes unit tests via "dotnet test",
+         ## ensuring that a failing test automatically fails the pipeline.
+         #run: |
+           ## Build the backend image using a unique tag.
+           ## If this step fails (e.g., due to test failure),
+           ## the entire CI process will stop immediately.
+           #docker build \
+             #./backend \
+             #-f ./backend/Dockerfile \
+             #--tag delifhery-api:latest \
+             #--no-cache 
+             #
+       ## --------------------------------------------------
+       ## 3. DEPLOYMENT (Local Docker Host)
+       ## --------------------------------------------------
+       #- name: Deploy (Restart) Backend Container
+         ## Recreates and restarts only the backend service.
+         ## The "--no-deps" flag prevents dependent containers (like the database)
+         ## from being restarted unnecessarily.
+         #run: docker compose up -d --no-deps --force-recreate backend
+ #
+         #env:
+           ## Pass database credentials securely via GitHub Secrets.
+           ## These are required for the backend to connect to the MySQL container.
+           #DB_USER: ${{ secrets.DB_USER }}
+           #DB_USER_PW: ${{ secrets.DB_USER_PW }}
+           #DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}

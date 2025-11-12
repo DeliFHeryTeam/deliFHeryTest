@@ -13,13 +13,12 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock 
 
     environment:
-      # Registration details for the GitHub self-hosted runner.
       # These values are read from the local `.env` file.
-      REPO_URL: ${REPO_RUNNER_URL} # https://github.com/${GH_OWNER}/${GH_REPO}
+      REPO_URL: ${REPO_RUNNER_URL}
       ACCESS_TOKEN: ${GH_PAT}                   # GitHub personal access token with repo/admin:org scope
       RUNNER_NAME: ${GH_RUNNER_NAME}            # Custom name for identifying the runner
       RUNNER_WORKDIR: /home/docker/github-actions-runner  # Working directory inside the container
-      LABELS: self-hosted,linux,x64,docker-compose       # Labels for targeting jobs in GitHub workflows
+      LABELS: self-hosted,linux,x64,docker-compose,${RUNNER_LABEL}       # Labels for targeting jobs in GitHub workflows
 
     networks:
       - delifhery-net

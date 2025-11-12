@@ -72,6 +72,8 @@ db/**
 .idea/**
 idea/**
 idea
+/idea/**
+**/idea
 
 .DS_Store
 DS_Store

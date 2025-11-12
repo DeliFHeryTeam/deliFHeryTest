@@ -10,7 +10,7 @@ public static class ConfigurationUtil
     public static IConfiguration GetConfiguration() {
         if (_configuration is null)
         {
-            Env.Load("../../../../../.env");  // Path ?            
+            Env.Load("../../../../../.env");  
             _configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", false)
                 .Build();
