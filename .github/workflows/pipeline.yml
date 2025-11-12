@@ -24,20 +24,20 @@ jobs:
           DB_USER_PW: ${{ secrets.DB_USER_PW }}
           DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
 
-    build-teammate:
-      if: github.actor == 'TeammateGitHubUsername'
-      runs-on: [self-hosted, docker-compose, teammate]
-      name: Build/Test (Teammate)
-      steps:
-        - uses: actions/checkout@v4
-        - name: Build Backend
-          run: docker build ./backend -f ./backend/Dockerfile -t delifhery-api:latest --no-cache
-        - name: Deploy Backend
-          run: docker compose up -d --no-deps --force-recreate backend
-          env:
-            DB_USER: ${{ secrets.DB_USER }}
-            DB_USER_PW: ${{ secrets.DB_USER_PW }}
-            DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
+  build-teammate:
+    if: github.actor == 'TeammateGitHubUsername'
+    runs-on: [self-hosted, docker-compose, teammate]
+    name: Build/Test (Teammate)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Backend
+        run: docker build ./backend -f ./backend/Dockerfile -t delifhery-api:latest --no-cache
+      - name: Deploy Backend
+        run: docker compose up -d --no-deps --force-recreate backend
+        env:
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_USER_PW: ${{ secrets.DB_USER_PW }}
+          DB_ROOT_PW: ${{ secrets.DB_ROOT_PW }}
 
 
    #build-and-test:
